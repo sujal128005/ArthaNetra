@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ArthaNetra Pitch Deck</title>
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  :root {
+    --ink: #1d1d1f; --ink-2: #424245; --ink-3: #6e6e73; --ink-4: #86868b; --hair: #d2d2d7; --alt: #f5f5f7;
+    --blue: #0071e3; --red: #e30000; --green: #1d8a3a; --orange: #c93400;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body { font-family: "Inter", "SF Pro Text", -apple-system, "Helvetica Neue", Arial, sans-serif; color: var(--ink);
+    -webkit-font-smoothing: antialiased; letter-spacing: -0.02em; font-feature-settings: "cv11", "ss01"; }
+  .slide { width: 1920px; height: 1080px; position: relative; overflow: hidden; padding: 120px 150px; page-break-after: always; break-after: page; background: #fff; }
+  .slide.alt { background: var(--alt); }
+  .slide.dark { background: #000; color: #f5f5f7; }
+  .display { font-family: "Inter Display", "Inter", sans-serif; }
+  .eyebrow { font-size: 30px; font-weight: 600; color: var(--orange); letter-spacing: -0.01em; margin-bottom: 22px; }
+  h1 { font-family: "Inter Display", "Inter", sans-serif; font-weight: 700; font-size: 150px; line-height: 1.0; letter-spacing: -0.045em; }
+  h2 { font-family: "Inter Display", "Inter", sans-serif; font-weight: 700; font-size: 92px; line-height: 1.04; letter-spacing: -0.04em; }
+  h3 { font-size: 34px; font-weight: 600; letter-spacing: -0.02em; }
+  .sub { font-size: 38px; line-height: 1.32; color: var(--ink-3); margin-top: 30px; max-width: 1380px; letter-spacing: -0.02em; }
+  .dark .sub { color: #a1a1a6; }
+  p { font-size: 26px; line-height: 1.45; color: var(--ink-2); }
+  .dark p { color: #a1a1a6; }
+  .foot { position: absolute; left: 150px; right: 150px; bottom: 56px; display: flex; justify-content: space-between; font-size: 20px; color: var(--ink-4); letter-spacing: -0.01em; }
+  .dark .foot { color: #6e6e73; }
+  .logo { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; font-size: 22px; color: var(--ink); }
+  .dark .logo { color: #f5f5f7; }
+  .logo svg { width: 30px; height: 30px; }
+  .grid { display: grid; gap: 40px; }
+  .card { background: #fff; border-radius: 36px; padding: 48px; }
+  .alt .card { background: #fff; }
+  .slide:not(.alt):not(.dark) .card { background: var(--alt); }
+  .big { font-family: "Inter Display", "Inter", sans-serif; font-weight: 700; letter-spacing: -0.05em; line-height: 0.95; }
+  .red { color: var(--red); } .grey { color: var(--ink-4); } .green { color: var(--green); } .blue { color: var(--blue); }
+  img.shot { width: 100%; border-radius: 28px; display: block; box-shadow: 0 30px 80px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04); }
+  table { width: 100%; border-collapse: collapse; }
+  td, th { text-align: left; padding: 22px 0; border-bottom: 1px solid var(--hair); font-size: 25px; vertical-align: top; }
+  th { font-size: 20px; font-weight: 600; color: var(--ink-3); padding-top: 0; }
+  .num { font-variant-numeric: tabular-nums; }
+  .dot { display: inline-block; width: 26px; height: 26px; border-radius: 50%; }
+  .full { background: var(--ink); } .half { background: linear-gradient(90deg, var(--ink) 50%, #e3e3e8 50%); } .none { background: #e3e3e8; }
+  .chain { display: flex; align-items: stretch; gap: 0; margin-top: 70px; }
+  .chain .node { flex: 1; background: #fff; border-radius: 28px; padding: 34px 26px; text-align: left; }
+  .chain .node b { display: block; font-size: 26px; margin-bottom: 10px; letter-spacing: -0.02em; }
+  .chain .node span { font-size: 20px; color: var(--ink-3); line-height: 1.4; display: block; }
+  .chain .arrow { width: 40px; display: grid; place-items: center; color: var(--ink-4); }
+  .chain .arrow svg { width: 18px; height: 30px; }
+  .pill { display: inline-block; background: var(--alt); border-radius: 999px; padding: 12px 24px; font-size: 22px; color: var(--ink-2); margin: 0 12px 14px 0; }
+  .tag { font-size: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-4); }
+  ul.clean { list-style: none; }
+  ul.clean li { font-size: 25px; line-height: 1.45; color: var(--ink-2); padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  ul.clean li:last-child { border-bottom: 0; }
+  .sec h3 { color: #f5f5f7; font-size: 30px; margin: 18px 0 10px; }
+  .sec p { font-size: 22px; color: #a1a1a6; }
+  .sec svg { width: 44px; height: 44px; color: #f5f5f7; }
+</style>
+</head>
+<body>
+
+<!-- 1. Cover -->
+<section class="slide dark">
+  <div class="logo"><svg viewBox="0 0 32 32"><path d="M2.5 16C6.8 9.2 11.2 6.5 16 6.5S25.2 9.2 29.5 16C25.2 22.8 20.8 25.5 16 25.5S6.8 22.8 2.5 16Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="16" r="4.6" fill="currentColor"/></svg>ArthaNetra</div>
+  <div style="position:absolute; left:150px; top:330px; right:150px">
+    <p class="eyebrow" style="color:#ff9f0a">ArthaNetra <span style="color:#6e6e73; font-weight:500">अर्थनेत्र</span></p>
+    <h1 style="font-size:190px">See the real price.</h1>
+    <p class="sub" style="max-width:1300px">AI that reads the fine print of loans, EMI offers, card bills and insurance pitches, and shows what they will really cost you.</p>
+  </div>
+  <div class="foot"><span>Arthaton 2026, AI for Finance</span><span>Team ArthaNetra</span></div>
+</section>
+
+<!-- 2. The hook -->
+<section class="slide">
+  <p class="tag">The problem</p>
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 90px; align-items:end">
+    <div>
+      <p style="font-size:32px; color:var(--ink-3); font-weight:500">A loan app says</p>
+      <p class="big grey" style="font-size:240px">0.1%</p>
+      <p style="font-size:40px; font-weight:600; color:var(--ink-4); margin-top:16px">a day</p>
+    </div>
+    <div>
+      <p style="font-size:32px; color:var(--ink-3); font-weight:500">The real cost is</p>
+      <p class="big red" style="font-size:240px">807%</p>
+      <p style="font-size:40px; font-weight:600; color:var(--red); margin-top:16px">a year</p>
+    </div>
+  </div>
+  <p style="margin-top:90px; font-size:32px; max-width:1400px">₹5,000 sanctioned. ₹3,938 reaches the account. ₹5,075 is due in 15 days. Every number was on the screen. The one that matters was not.</p>
+  <div class="foot"><span>ArthaNetra</span><span>2</span></div>
+</section>
+
+<!-- 3. Hidden in plain sight -->
+<section class="slide alt">
+  <h2>The price is hidden<br>in plain sight.</h2>
+  <div class="card" style="margin-top:60px; padding: 40px 56px">
+    <table>
+      <tr><th style="width:42%">What the offer says</th><th>What the same document really means</th></tr>
+      <tr><td>"Interest only 0.1% per day"</td><td><b class="red num">807% a year</b>, after a fee taken upfront</td></tr>
+      <tr><td>"No-Cost EMI, 0% interest"</td><td><b class="red num">36.7% a year</b>, from a lost discount, a fee and GST</td></tr>
+      <tr><td>"Lowest rate, just 9%"</td><td><b class="red num">18.7% a year</b>. The 9% is a flat rate</td></tr>
+      <tr><td>"Pay just the minimum"</td><td><b class="red num">30+ years</b> and ₹3.1 lakh to clear ₹50,000</td></tr>
+      <tr><td style="border-bottom:0">"Double your money, guaranteed"</td><td style="border-bottom:0"><b class="red num">3.26% a year</b>, less than PPF</td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>Results from ArthaNetra on fictional sample documents</span><span>3</span></div>
+</section>
+
+<!-- 4. Why now -->
+<section class="slide">
+  <h2>The rules exist.<br>Nobody checks them for you.</h2>
+  <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 90px; gap: 60px">
+    <div><p class="big" style="font-size:104px">600</p><p style="margin-top:22px">of about 1,100 lending apps studied by an RBI working group in 2021 were found to be illegal.</p></div>
+    <div><p class="big" style="font-size:104px">Oct 2024</p><p style="margin-top:22px">RBI made an all-inclusive APR in a Key Facts Statement mandatory for retail loans.</p></div>
+    <div><p class="big" style="font-size:104px">Jan 2024</p><p style="margin-top:22px">Lenders can no longer add penalty interest to the rate or compound it. Many offers still do.</p></div>
+  </div>
+  <div class="foot"><span>Sources: RBI Working Group on Digital Lending (Nov 2021); RBI KFS circular (Apr 2024); RBI penal charges circular (Aug 2023)</span><span>4</span></div>
+</section>
+
+<!-- 5. Meet ArthaNetra -->
+<section class="slide alt">
+  <div style="display:grid; grid-template-columns: 640px 1fr; gap: 90px; align-items:center; height:100%">
+    <div>
+      <p class="tag">The product</p>
+      <h2 style="margin-top:20px">Meet<br>ArthaNetra.</h2>
+      <ul class="clean" style="margin-top:50px">
+        <li><b>Upload</b> any offer: text, PDF or screenshot</li>
+        <li><b>Check</b> every number against the document</li>
+        <li><b>Understand</b> the real price, in your language</li>
+      </ul>
+    </div>
+    <div style="display:grid; gap:30px">
+      <img class="shot" src="../screenshots/02_verdict.png">
+      <img class="shot" src="../screenshots/03_compare.png">
+    </div>
+  </div>
+  <div class="foot"><span>ArthaNetra</span><span>5</span></div>
+</section>
+
+<!-- 6. Product tour -->
+<section class="slide">
+  <h2 style="font-size:80px">Everything a borrower needs<br>before signing.</h2>
+  <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 36px 50px; margin-top: 56px">
+    <div><img class="shot" src="../screenshots/04_money.png" style="height:440px; object-fit:cover; object-position:top"><h3 style="margin-top:28px">Follow the money</h3><p style="font-size:22px">Every rupee with a date, and where it goes.</p></div>
+    <div><img class="shot" src="../screenshots/06_proof.png" style="height:440px; object-fit:cover; object-position:top"><h3 style="margin-top:28px">Every number, proven</h3><p style="font-size:22px">Each value next to the exact words it came from.</p></div>
+  </div>
+  <div class="foot"><span>ArthaNetra</span><span>6</span></div>
+</section>
+
+<!-- 7. Rules and simulator -->
+<section class="slide alt">
+  <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 50px; margin-top: 10px">
+    <div>
+      <h2 style="font-size:72px">21 RBI and IRDAI checks.</h2>
+      <p style="margin:24px 0 40px">Each finding names its circular and shows the sentence that triggered it.</p>
+      <img class="shot" src="../screenshots/05_findings.png" style="height:520px; object-fit:cover; object-position:top">
+    </div>
+    <div>
+      <h2 style="font-size:72px">Try different terms.</h2>
+      <p style="margin:24px 0 40px">Drop the fee, change the rate or prepay, and see what it does to the real cost.</p>
+      <img class="shot" src="../screenshots/07_simulator.png" style="height:520px; object-fit:cover; object-position:center">
+    </div>
+  </div>
+  <div class="foot"><span>ArthaNetra</span><span>7</span></div>
+</section>
+
+<!-- 8. Language -->
+<section class="slide">
+  <div style="display:grid; grid-template-columns: 1fr 520px; gap: 90px; align-items:center">
+    <div>
+      <p class="tag">Built for Bharat</p>
+      <h2 style="margin-top:20px">12 languages.<br>Voice questions.</h2>
+      <p style="margin-top:36px; max-width:820px">Explanations in Hindi, Tamil, Telugu, Bengali, Marathi, Kannada, Gujarati, Malayalam, Punjabi, Odia, Hinglish and English. Ask by speaking. Get a message ready to send back to the lender or agent on WhatsApp.</p>
+      <img class="shot" src="../screenshots/09_hindi_explanation.png" style="margin-top:50px; height:330px; object-fit:cover; object-position:top">
+    </div>
+    <img class="shot" src="../screenshots/11_mobile.png" style="border-radius:44px">
+  </div>
+  <div class="foot"><span>ArthaNetra</span><span>8</span></div>
+</section>
+
+<!-- 9. How it works -->
+<section class="slide alt">
+  <p class="tag">How it works</p>
+  <h2 style="margin-top:20px">The AI reads.<br>The maths is done by code.</h2>
+  <p class="sub" style="font-size:32px">Language models read well and count badly. So they never do the arithmetic.</p>
+  <div class="chain">
+    <div class="node"><b>Mask</b><span>Personal details removed before any AI call</span></div>
+    <div class="arrow"><svg viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+    <div class="node"><b>Read twice</b><span>An AI reader and a rule-based reader, independently</span></div>
+    <div class="arrow"><svg viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+    <div class="node"><b>Prove</b><span>Every value must quote the document, or it is dropped</span></div>
+    <div class="arrow"><svg viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+    <div class="node"><b>Calculate</b><span>Dated payments, solved for the true yearly rate</span></div>
+    <div class="arrow"><svg viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+    <div class="node"><b>Check</b><span>21 rules as code, each with its citation</span></div>
+    <div class="arrow"><svg viewBox="0 0 8 14"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+    <div class="node"><b>Explain</b><span>Plain words, with every number matched to the maths</span></div>
+  </div>
+  <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 80px">
+    <div><p class="big" style="font-size:88px">7</p><p style="font-size:22px; margin-top:12px">product types: app loans, personal, home, vehicle, EMI, cards, insurance</p></div>
+    <div><p class="big" style="font-size:88px">21</p><p style="font-size:22px; margin-top:12px">RBI and IRDAI rule checks with citations</p></div>
+    <div><p class="big" style="font-size:88px">12</p><p style="font-size:22px; margin-top:12px">Indian languages, with voice questions</p></div>
+    <div><p class="big" style="font-size:88px">5 s</p><p style="font-size:22px; margin-top:12px">typical time from upload to full result</p></div>
+  </div>
+  <div class="foot"><span>Works fully offline too, with the rule-based reader</span><span>9</span></div>
+</section>
+
+<!-- 10. Security -->
+<section class="slide dark">
+  <p class="tag" style="color:#6e6e73">Security</p>
+  <h2 style="margin-top:20px">It is about money.<br>So security comes first.</h2>
+  <div class="grid sec" style="grid-template-columns: repeat(4, 1fr); gap: 56px 50px; margin-top: 76px">
+    <div><svg viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6c1.6 0 3 .5 4.2 1.2M21 12s-3.5 6-9 6c-1.6 0-3-.5-4.2-1.2M4 20L20 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>Masked before AI</h3><p>Phone, PAN, Aadhaar, account, card, IFSC, UPI and email.</p></div>
+    <div><svg viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V8a4 4 0 018 0v2.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><h3>Nothing stored</h3><p>No database, no accounts. Processed in memory, then gone.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M14 3v5h5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><h3>Real file checks</h3><p>Type read from the file's bytes. Size, page and password limits.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="18" cy="16" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><h3>Rate limits</h3><p>Per-client limits stop abuse and runaway AI costs.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><h3>Locked-down browser</h3><p>Strict Content Security Policy, no framing, no sniffing.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.8 12.2l2.2 2.2 4.3-4.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>Injection-proof maths</h3><p>Hidden instructions in a document cannot change the result.</p></div>
+    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 12.3l2.4 2.4 4.6-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>No invented numbers</h3><p>Unproven values never reach the maths. AI text is checked.</p></div>
+    <div><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 14l2 2 4-4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><h3>Tamper-evident reports</h3><p>Report IDs built from SHA-256 hashes of document and result.</p></div>
+  </div>
+  <div class="foot"><span>89 automated tests, 13 of them for security. Keys stay on the server.</span><span>10</span></div>
+</section>
+
+<!-- 11. Business model -->
+<section class="slide">
+  <p class="tag">Business model</p>
+  <h2 style="margin-top:20px">Free for people.<br>Paid by those who want trust.</h2>
+  <div class="grid" style="grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 70px">
+    <div class="card">
+      <p class="tag">Consumers</p>
+      <p class="big" style="font-size:84px; margin:18px 0 24px">Free</p>
+      <p style="font-size:23px">Web app and WhatsApp number. Every check, every language. Builds reach and the data on where hidden costs live.</p>
+    </div>
+    <div class="card">
+      <p class="tag">Lenders and fintechs</p>
+      <p class="big" style="font-size:84px; margin:18px 0 24px">API</p>
+      <p style="font-size:23px">Audit Key Facts Statements before launch, monitor partner apps, and earn a "Verified fair pricing" badge. Priced per document checked, with monthly plans.</p>
+    </div>
+    <div class="card">
+      <p class="tag">Partners</p>
+      <p class="big" style="font-size:84px; margin:18px 0 24px">Licence</p>
+      <p style="font-size:23px">White-label versions for banks' literacy programmes, NGOs, consumer forums, colleges and newsrooms. Aggregated, anonymous trend reports for researchers.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Consumers never pay and never see ads from lenders</span><span>11</span></div>
+</section>
+
+<!-- 12. Competition -->
+<section class="slide alt">
+  <h2>Nothing else does all of this.</h2>
+  <div class="card" style="margin-top:56px; padding: 30px 56px">
+    <table>
+      <tr><th style="width:40%"></th><th>EMI and APR calculators</th><th>Chat-with-PDF AI tools</th><th>Scam message detectors</th><th style="color:var(--ink)">ArthaNetra</th></tr>
+      <tr><td>Reads the actual document</td><td><span class="dot none"></span></td><td><span class="dot full"></span></td><td><span class="dot half"></span></td><td><span class="dot full"></span></td></tr>
+      <tr><td>Proves every number it uses</td><td><span class="dot none"></span></td><td><span class="dot none"></span></td><td><span class="dot none"></span></td><td><span class="dot full"></span></td></tr>
+      <tr><td>True yearly cost for any product</td><td><span class="dot half"></span></td><td><span class="dot none"></span></td><td><span class="dot none"></span></td><td><span class="dot full"></span></td></tr>
+      <tr><td>RBI and IRDAI rule checks</td><td><span class="dot none"></span></td><td><span class="dot none"></span></td><td><span class="dot half"></span></td><td><span class="dot full"></span></td></tr>
+      <tr><td>Indian languages and voice</td><td><span class="dot none"></span></td><td><span class="dot half"></span></td><td><span class="dot half"></span></td><td><span class="dot full"></span></td></tr>
+      <tr><td style="border-bottom:0">Masks personal data before AI</td><td style="border-bottom:0"><span class="dot none"></span></td><td style="border-bottom:0"><span class="dot none"></span></td><td style="border-bottom:0"><span class="dot none"></span></td><td style="border-bottom:0"><span class="dot full"></span></td></tr>
+    </table>
+  </div>
+  <div class="foot"><span>Filled: yes. Half: partly. Empty: no. Based on typical tools in each category.</span><span>12</span></div>
+</section>
+
+<!-- 13. IP and roadmap -->
+<section class="slide">
+  <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 90px">
+    <div>
+      <p class="tag">Intellectual property</p>
+      <h2 style="font-size:76px; margin-top:20px">14 new components.</h2>
+      <div style="margin-top:44px">
+        <span class="pill">Evidence-anchored reading</span><span class="pill">Two-reader agreement</span>
+        <span class="pill">Sanity-check fallback</span><span class="pill">One engine for every product</span>
+        <span class="pill">Stable rate solver</span><span class="pill">Disclosure gap index</span>
+        <span class="pill">Flat-rate detector</span><span class="pill">Rules as code</span>
+        <span class="pill">Pressure-tactic detection</span><span class="pill">Transparent Trap Score</span>
+        <span class="pill">Number check on AI text</span><span class="pill">What-if simulator</span>
+        <span class="pill">Masking that keeps amounts</span><span class="pill">Tamper-evident report IDs</span>
+      </div>
+      <p style="margin-top:30px; font-size:22px">Provisional patent planned with draft claims, plus copyright and the ArthaNetra trademark.</p>
+    </div>
+    <div>
+      <p class="tag">Roadmap</p>
+      <h2 style="font-size:76px; margin-top:20px">What comes next.</h2>
+      <ul class="clean" style="margin-top:44px">
+        <li><b>Now.</b> Web app, 7 product types, 21 rules, 12 languages (offline too), voice</li>
+        <li><b>3 months.</b> WhatsApp number: forward any offer, get the result</li>
+        <li><b>6 months.</b> Browser extension that checks EMI offers at checkout</li>
+        <li><b>12 months.</b> Lender API and verified-pricing badge, partner pilots</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span>ArthaNetra</span><span>13</span></div>
+</section>
+
+<!-- 14. Close -->
+<section class="slide dark">
+  <div style="position:absolute; left:150px; right:150px; top:330px">
+    <h1 style="font-size:150px">No one should sign<br>a price they cannot see.</h1>
+    <p class="sub" style="margin-top:50px">ArthaNetra. See the real price.</p>
+  </div>
+  <div class="foot"><span>github.com/your-username/arthanetra</span><span>Team ArthaNetra, Arthaton 2026</span></div>
+</section>
+
+</body>
+</html>
