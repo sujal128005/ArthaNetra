@@ -9,6 +9,8 @@ result in 12 Indian languages.
 
 Built for Arthaton 2026 (theme: AI for Finance).
 
+**🌐 Live demo:** [https://arthanetra.onrender.com](https://arthanetra.onrender.com) *(free Render instance: the first visit after a quiet spell can take up to a minute to wake up)*
+
 ![ArthaNetra home page](docs/screenshots/01_home.png)
 
 ## Why we built this
